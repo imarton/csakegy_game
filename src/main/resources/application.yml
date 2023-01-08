@@ -1,0 +1,16 @@
+#Tomcat port átírása
+#server:
+#  port: 8280
+
+spring:
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    hu: TRACE
+
+
+#szó adatbázis
+game:
+  words:  uszoda sajt IKEA íj ketchup tüzijáték homok

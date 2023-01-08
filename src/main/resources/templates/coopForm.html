@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="~{bootstrap :: meta}"></div>
+    <div th:replace="~{levay :: meta}"></div>
+    <title>Csak Egy - Kooperatív játékos</title>
+</head>
+<body>
+    <div th:replace="~{levay :: body_header}"></div>
+    <div class="container py-4 px-3 mx-auto">
+        <h1>Játékos lap</h1>
+        <div th:if="${not gameStarted}">
+            <div class="alert alert-info">
+                A játék még nem kezdődött el.
+            </div>
+        </div>
+        <div th:if="${gameStarted}" >
+            <div th:if="${alreadyPlayed}">
+                Az általad beküldött szó rögzítésre került! (<code th:text="${playerWord.word}" ></code>)
+                <br/>Ha mindenki beküldte a javaslatát (vagy lejárt az idő) akkor szavak megjelennek majd a Játékosnak.
+            </div>
+
+            <div th:if="${not alreadyPlayed}">
+                <form action="#" th:action="@{/coopPlayer}" th:object="${playerWord}" method="post">
+                    <div class="row">
+                        <div class="col-md-3 text-md-end">Szó amit a játékosnak ki kell találnia:</div>
+                        <div class="col-md"><span th:text="${selectedWord}" class="p-4 fw-bold fs-3 text-primary-emphasis"></span></div>
+                    </div>
+                    <div class="mb-3 blockquote-footer mb-0 mt-0 text-muted"><span class="fw-bold">Magyarázat:</span>
+                        Ezt a szót, de akár egy részét sem szabad beírni, továbbá az idegen nyelvi megfelelője sem írható be!
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="userNick" class="form-label">Neved</label>
+                        <input type="text" class="form-control" th:classappend="(${#fields.hasErrors('name')}?'is-invalid':'')" id="userNick" th:field="*{name}" />
+                        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback">Érvénytelen érték a mezőben!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="word" class="form-label">Választott szó</label>
+                        <input type="text" class="form-control" th:classappend="(${#fields.hasErrors('word')}?'is-invalid':'')" id="word" th:field="*{word}" />
+                        <div th:if="${#fields.hasErrors('word')}" th:errors="*{word}" class="invalid-feedback">Érvénytelen érték a mezőben!</div>
+<!--                        DEBUG: <span th:text="${#fields.hasErrors('word')}"></span>-->
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Beküldöm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{bootstrap :: script_footer}"></div>
+</body>
+</html>
