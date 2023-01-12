@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <div th:replace="~{bootstrap :: meta}"></div>
-    <div th:replace="~{levay :: meta}"></div>
+    <div th:replace="~{fragments/bootstrap :: meta}"></div>
+    <div th:replace="~{fragments/levay :: meta}"></div>
     <title>Csak Egy - Hiba</title>
 </head>
 <body>
-    <div th:replace="~{levay :: body_header}"></div>
+    <div th:replace="~{fragments/levay :: body_header}"></div>
     <div class="container py-4 px-3 mx-auto text-center">
         <h2>:( Opps! Valami félrement!</h2>
         <a href="/" class="btn btn-primary">Nyitó oldal</a>
     </div>
 
-    <div th:replace="~{bootstrap :: script_footer}"></div>
+    <div th:replace="~{fragments/bootstrap :: script_footer}"></div>
 </body>
 </html>

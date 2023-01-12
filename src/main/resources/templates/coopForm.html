@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{layouts/levay_bootstrap_layout}">
 <head>
-    <div th:replace="~{bootstrap :: meta}"></div>
-    <div th:replace="~{levay :: meta}"></div>
     <title>Csak Egy - Kooperatív játékos</title>
 </head>
 <body>
-    <div th:replace="~{levay :: body_header}"></div>
-    <div class="container py-4 px-3 mx-auto">
+    <div layout:fragment="page_content">
         <h1>Játékos lap</h1>
         <div th:if="${not gameStarted}">
             <div class="alert alert-info">
@@ -47,6 +44,5 @@
             </div>
         </div>
     </div>
-    <div th:replace="~{bootstrap :: script_footer}"></div>
 </body>
 </html>
