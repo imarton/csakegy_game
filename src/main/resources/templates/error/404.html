@@ -10,8 +10,8 @@
     <div th:replace="~{fragments/levay :: body_header}"></div>
     <div class="container py-4 px-3 mx-auto text-center">
         <h2>:( Opps! Sajnáljuk, de a keresett oldalt nem találjuk!</h2>
-
-        <a href="/" class="btn btn-primary">Nyitó oldal</a>
+        <img src="../../static/default/img/error_404-not-found.png" th:src="@{/default/img/error_404-not-found.png}" class="img-fluid mb-2"/>
+        <div><a href="/" class="btn btn-primary">Nyitó oldal</a></div>
     </div>
 
     <div th:replace="~{fragments/bootstrap :: script_footer}"></div>
