@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{fragments/bootstrap :: meta}"></div>
+    <div th:replace="~{fragments/levay :: meta}"></div>
+    <title>Csak Egy - Nem elérhető tartalom (403)</title>
+</head>
+<body>
+    <div th:replace="~{fragments/levay :: body_header}"></div>
+    <div class="container py-4 px-3 mx-auto text-center">
+        <h2>:( Opps! Sajnáljuk, de a keresett oldalt nem hozzáférhető!</h2>
+        <img src="../../static/default/img/error-403-forbidden.png" th:src="@{/default/img/error-403-forbidden.png}" class="img-fluid mb-2"/>
+        <div><a href="/" class="btn btn-primary">Nyitó oldal</a></div>
+    </div>
+
+    <div th:replace="~{fragments/bootstrap :: script_footer}"></div>
+</body>
+</html>
