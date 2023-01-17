@@ -1,10 +1,13 @@
 #Tomcat port átírása
 #server:
 #  port: 8280
+#  servlet:
+#    context-path: /gamebase
 
 spring:
   thymeleaf:
     cache: false
+
 
 logging:
   level:

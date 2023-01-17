@@ -23,6 +23,16 @@
                             <div class="current-date">
                                 <span>2023. január 8.</span>
                             </div>
+                            <div>
+                                <th:block th:if="${#authorization.expression('isAuthenticated()')}">
+                                    <span>Hello</span>
+                                    <span th:text="${#authentication.getPrincipal().getUsername()}"></span>!
+                                    <div><a th:href="@{/logout}" href="../logout.html">Kijelentkezés</a></div>
+                                </th:block>
+                                <th:block th:if="${not #authorization.expression('isAuthenticated()')}">
+                                    <div><a th:href="@{/login}" href="../login.">Bejelentkezés</a></div>
+                                </th:block>
+                            </div>
                         </div>
                     </div>
 
