@@ -70,7 +70,7 @@ public class SecurityConfig {
                         req.requestMatchers("/gameinfo").hasRole("ADMIN");
                         req.requestMatchers("/coopPlayer").hasRole("USER");
 //                        .requestMatchers("/home").authenticated()
-                        req.anyRequest().permitAll();
+                        req.anyRequest().authenticated();
                     }
                 )
                 .formLogin(withDefaults())
