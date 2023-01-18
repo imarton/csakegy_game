@@ -8,7 +8,6 @@ spring:
   thymeleaf:
     cache: false
 
-
 logging:
   level:
     hu: TRACE

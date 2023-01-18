@@ -1,5 +1,6 @@
 package hu.tirek.levay.game.csakegy.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-
+@Slf4j
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
@@ -73,6 +74,15 @@ public class SecurityConfig {
                     }
                 )
                 .formLogin(withDefaults())
+                .logout(logout -> {
+                        logout.logoutSuccessUrl("/");
+//                        logout.addLogoutHandler((req, resp, auth) -> {
+//                            try {
+//                                req.logout();
+//                                log.info("Sikeres kijelentkezés");
+//                            } catch (ServletException e) { log.error(e.getMessage()); }
+//                        });
+                })
                 .httpBasic()
         ;
 
